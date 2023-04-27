@@ -1,0 +1,23 @@
+SELECT * FROM sakila.players;
+-- Question 1 - what is the average minutes per game played by the top 5 leading scorers
+select name, PTS*G from players order by PTS desc;
+select avg (MP) FROM players where PTS*G >=900;
+select * from players;
+
+-- Question 2 - who scores the most points per minute played
+select Player, (PTS) / (MP) AS Points_per_Minute
+FROM players
+order by Points_per_Minute DESC
+Limit 1;
+
+-- Question 3 - what is the average number of games a laker player plays
+select avg(g) from players;
+-- Question 4 - who has the highest efficiency rating
+select player, (((PTS+ORB+DRB+AST+STL+BLK) - (FTA-FT)-(FGA-FG)-TOV)/G) AS Eff_RAT
+from players
+order by Eff_Rat DESC
+limit 1;
+
+ 
+
+SELECT * FROM sakila.players LIMIT 0, 1000
